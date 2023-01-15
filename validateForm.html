@@ -1,0 +1,273 @@
+<!DOCTYPE html><!--starttttt-->
+<html lang="en">
+<head>
+  <title>user login </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <script src="js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+ <div class="container-fluid">
+   <div class="row d-flex justify-content-center align-items-center ">
+     <div class="col-md-9 col-lg-6 col-xl-5 mb-2">
+        
+        <img src="C:\Users\User\Documents\office-work\project\images\peko.png" class="img-fluid" alt="image">
+      <h4>Streamlining business payments,<br>
+        expenses and corporate cards</h4>
+     </div>
+     
+
+     <div class="col-md-9 col-lg-6 col-xl-5 " >
+      <h3 class="text-center pt-1">Let's Get Started</h3>
+
+                    
+       <form action="#" name="myForm" id="myForm" onsubmit="return validation()" method ="post">
+      
+        <h5 >Personal Information</h5>
+                  <div class="row mb-4" >
+                    <div class="col mb-3">
+                      <div class ="form-outline" >
+                         <input type="text" class="form-control" id="firstName"  placeholder="firstName" name="fName"  required ><b><span id ="ferror" class = "text-danger "></span></b>
+                      </div>
+                    </div>
+                   <div class="col mb-3 ">
+                     <div class="form-outlines">
+                       <input type="text" class="form-control"  id="lastName" placeholder="lastName" name="flastName" required ><b><span id ="lerror" class = "text-danger " ></b> </span>
+                      </div>
+                   </div>
+                      <div class="row mb-4" >
+                        <div class="col mb-3">
+                          <div class ="form-outline">
+                             <input type="text" class="form-control" id="designation" placeholder="Designation" name="fdesig" required><b><span id ="derror" class = "text-danger " ></span> </b>
+                           </div>
+                         </div>
+                      <div class="col mb-3">
+                        <div class="form-outline">
+                          <input type="phone" class="form-control" id="phone" placeholder="Phone Number" name="fPhone" required ><b><span id="perror" class ="text-danger " ></span></b>
+                         </div>
+                      </div>
+                      <div class="form-outline mb-3">
+                        <input type="email" class="form-control" id="email" placeholder="Business Email Address" name="femail" required ><b><span id ="eerror" class = "text-danger "> </span></b>
+                     </div>
+                      <h5> About Company</h5>
+                        <div class="form-outline mb-3">
+                          <input type="text" id="companyName" class="form-control"  placeholder="Company Name" name="fcompany" required><b><span id ="cerror" class = "text-danger "> </span></b>
+                        </div>
+                          <div class="row mb-4">
+                            <div class="col mb-3">
+                              <select class="select form-control" id="selection" name="select" required><b><span id ="serror" class = "text-danger "></b> </span>
+                                <option value="">Choose city</option>
+                                <option value="1">Delhi</option>
+                                <option value="2">Mumbai</option>
+                                <option value="3">Srinagar</option>
+                      </select>
+                      </div>
+                           <div class="col mb-4">
+                            <div class="form-outline">
+                              <input type="Business" class="form-control" id="businessActivity" placeholder="Business Activity" name="fbusinessActivity"required><b><span id ="berror" class = "text-danger " font-weight="bold"> </span></b>
+                            </div>
+                          </div>
+                       </div>
+                       <div class="row mb-4">
+                       <div class="col mb-3">
+                    <button type="button1" id="submit" class="btn btn-dark " value="submit"> Submit</button>
+                    <button type="button2" id ="clear" class="btn btn-primary" onclick="newFuntion()" value="reset">Clear</button>
+                    <p class=" mt-2 pt-1 mb-0 text-center">Already have an account? </p>
+                       <a href="#" 
+                       class="link-dark ">Login</a>
+                   </div>
+                   </div>
+                  </div>
+             </form>   
+          </div>
+       </div>
+     </div>
+    </body>
+    <script  type="text/javascript">   
+    function validation()
+    {
+        var first= document.getElementById('firstName').value;
+        var last = document.getElementById('lastName').value;
+        var designation = document.getElementById('designation').value;
+        var phone = document.getElementById('phone').value;
+        var email = document.getElementById('email').value;
+        var company = document.getElementById('companyName').value;
+        var sel = document.getElementById('selection').value;
+        var business = document.getElementById('businessActivity').value;
+        //validation for first name
+        if (first == ""){
+            document.getElementById('ferror').innerHTML="*please fill the firstname";
+           
+            return false;
+        }
+      else  if  ((first.length<=3)||(first.length>25)){
+            document.getElementById('ferror').innerHTML="*firstname should be 4 to 25 characters long";
+           
+            return false;
+        }
+        else if(!isNaN(first)){
+            document.getElementById('ferror').innerHTML="firstName should be alphabets only";
+           
+            return false;
+        }
+         else
+        
+        document.getElementById('ferror').innerHTML="";
+      
+        //validation for lastname
+
+        if (last == ""){
+            document.getElementById('lerror').innerHTML="*please fill the lastname";
+           
+            return false;
+        }
+         else  if ((last.length<=3)||(first.length>25)){
+            document.getElementById('lerror').innerHTML="*lasttname should be 4 to 25 characters long";
+           
+            return false;
+        }  
+         else if(!isNaN(last)){
+            document.getElementById('lerror').innerHTML="lastName should be alphabets only";
+        
+        }
+        else
+    
+        document.getElementById('lerror').innerHTML="";
+        
+
+               //validation for designation 
+        
+             if (designation == ""){
+            document.getElementById('derror').innerHTML="*please fill the designation";
+           
+            return false;
+             }
+           else if ((designation.length<=3)||(designation.length>25)){
+            document.getElementById('derror').innerHTML="*designation should be between 4 to 25 characters long";
+          
+            return false;
+           }
+       else if(!isNaN(designation)){
+            document.getElementById('derror').innerHTML="*designation should be alphabets only";
+        
+        }
+       else
+       document.getElementById('derror').innerHTML="";
+ 
+      
+         document.getElementById('derror').innerHTML="";
+        
+            //validation for phone number
+            if (phone == ""){
+            document.getElementById('perror').innerHTML="*please fill the phone number field";
+           
+            return false;
+        }
+        else if(isNAN(phone)){
+            document.getElementById('perror').innerHTML="*phone number should be number only";
+             
+            return false;
+
+        }
+        else if (phone.length!=10){
+             document.getElementById('perror').innerHTML="*phone number should be 10 digits long";  
+             
+            return false;
+        }
+        else 
+       
+        document.getElementById('perror').innerHTML="";
+
+
+
+        //validation for e-mail
+        if (email == ""){
+            document.getElementById('eerror').innerHTML="*please fill the email field";
+  
+            return false;
+        }
+
+       else if( email.indexOf('@')<= 0 ){ 
+            document.getElementById('eerror').innerHTML="*@ is not at correct position";
+           
+            return false;
+            }
+          else  if (email.charAt( email.length-4)!='.'){
+                document.getElementById('eerror').innerHTML=".is at invalid position";
+                
+            return false;
+            }
+            else 
+            
+            document.getElementById('eerror').innerHTML=""; 
+        //validation for company
+        if (company == ""){
+            document.getElementById('cerror').innerHTML="*please fill the company";
+        
+            return false;
+        }
+        else if ((company.length<=3)||(company.length>25)){
+            document.getElementById('cerror').innerHTML="*company name should be between 3 to 25 characters long";
+      
+            return false;
+        }
+        if(!isNaN(company)){
+            document.getElementById('cerror').innerHTML="company name should contain alphabets only";
+          
+            return false;
+        }
+         else 
+        
+       document.getElementById('cerror').innerHTML="";
+    
+          if (sel==""){
+          document.getElementById('serror').innerHTML="";
+        }
+
+        //validation for business
+        if (business == ""){
+            document.getElementById('berror').innerHTML="*please fill the business field";
+          
+            return false;
+        }
+       else if ((business.length<=3)||(business.length>25)){
+            document.getElementById('berror').innerHTML="*business name should be between 3 to 25 characters long";
+          
+            return false;
+        }
+       else if(!isNaN(business)){
+            document.getElementById('berror').innerHTML="business name should be alphabets only";
+             return false;
+        }
+        else
+        
+        document.getElementById('berror').innerHTML="";
+       return true;
+    }
+    //return true;  
+    function newFuntion(){
+        var element= document.getElementsByid("myForm");
+        element.reset()
+    }
+
+     /* var form=document.getElementById('myForm')
+      form.addEventListener('submit',function(event) {
+        event.preventDefault()
+        console.log('myForm');
+      })*/
+    
+    </script>
+   </html>
+         
+      
+      
+    
+    
+                  
+            
+ 
+
+
+    
